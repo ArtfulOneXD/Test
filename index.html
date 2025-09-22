@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MelPro • Smart Estimates</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">⚡</div>
+        <div>
+          <h1>MelPro Electrical</h1>
+          <p>Fast, precise, customer-focused estimates powered by AI.</p>
+        </div>
+      </div>
+      <nav class="top-actions">
+        <a href="#work" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#chat" class="cta">Get Estimate</a>
+      </nav>
+    </div>
+  </header>
+
+    <main>
+      <section class="hero container">
+        <div class="hero-copy">
+          <h2>Professional electrical work—made simple</h2>
+          <p>Describe your job and our assistant drafts a scope, timeline, and ballpark price in minutes.</p>
+          <div class="hero-actions">
+            <a href="#chat" class="cta large">Start a Chat Estimate</a>
+            <a href="#work" class="ghost">See Recent Work</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="sparkle"></div>
+          <div class="card hint">Licensed & insured • Residential & light commercial • Rapid scheduling</div>
+          <div class="card hint">Panel upgrades • EV chargers • Lighting • Troubleshooting</div>
+        </div>
+      </section>
+
+      <section id="chat" class="container chat-section">
+        <div class="chat-card">
+          <div class="chat-head">
+            <div class="agent">
+              <div class="avatar">🤖</div>
+              <div>
+                <h3>Estimator Bot</h3>
+                <p class="muted">Online • replies in seconds</p>
+              </div>
+            </div>
+            <button id="clear" class="icon-btn" title="Clear conversation" aria-label="Clear conversation">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+
+          <div id="chat-box" class="chat-box" aria-live="polite" aria-label="Chat transcript"></div>
+
+          <form id="chat-form" class="input-row" autocomplete="off">
+            <input id="user-input" type="text" placeholder="Describe your job: “Install a 240V outlet for EV charger in garage…”" required />
+            <button class="send" type="submit" aria-label="Send">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.4 20.6l18-8.6a1 1 0 0 0 0-1.8l-18-8.6A1 1 0 0 0 2 2.9v6.9a1 1 0 0 0 .8 1l12 1.2-12 1.2a1 1 0 0 0-.8 1v6.9a1 1 0 0 0 1.4 1.1z" fill="currentColor"/></svg>
+            </button>
+          </form>
+          <p class="legal muted">Estimates are informational and may change after on-site assessment.</p>
+        </div>
+      </section>
+
+      <section id="work" class="container grid">
+        <article class="tile">
+          <h4>EV Charger Install</h4>
+          <p class="muted">NEMA 14-50 outlet + 50A breaker, conduit run 25 ft.</p>
+        </article>
+        <article class="tile">
+          <h4>Panel Upgrade</h4>
+          <p class="muted">100A → 200A service upgrade with new main panel.</p>
+        </article>
+        <article class="tile">
+          <h4>Lighting Refresh</h4>
+          <p class="muted">Kitchen can lights + dimmers, code-clean wiring.</p>
+        </article>
+      </section>
+
+      <section id="contact" class="container contact">
+        <div class="contact-card">
+          <h3>Contact</h3>
+          <p class="muted">Prefer human? We’ve got you.</p>
+          <ul>
+            <li>Email: <a href="mailto:hello@melpro.example">hello@melpro.example</a></li>
+            <li>Phone: <a href="tel:+1-916-555-0199">(916) 555-0199</a></li>
+            <li>Service area: Sacramento & nearby</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> MelPro Electrical</span>
+      <span class="muted">Crafted with care ⚡</span>
+    </div>
+  </footer>
+
+  <script src="chat.js"></script>
+</body>
+</html>

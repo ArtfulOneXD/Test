@@ -1,0 +1,180 @@
+:root{
+  --bg: #0b0f17;
+  --bg2: #0f1522;
+  --card: rgba(255,255,255,0.08);
+  --stroke: rgba(255,255,255,0.12);
+  --text: #e8eefc;
+  --muted: #a7b0c6;
+  --brand: #6aa3ff;
+  --accent: #8ef5a8;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f6f8ff;
+    --bg2: #eef2ff;
+    --card: rgba(255,255,255,0.9);
+    --stroke: rgba(0,15,60,0.07);
+    --text: #0a1224;
+    --muted: #5a6986;
+    --brand: #2b6fff;
+    --accent: #11b87a;
+  }
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #1a2542 0%, transparent 60%),
+    radial-gradient(900px 400px at 110% 10%, #1b3d2b 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+}
+
+/* Layout */
+.container{width:min(1100px, 92%); margin:0 auto}
+.site-header{
+  position:sticky; top:0; z-index:50;
+  backdrop-filter:saturate(1.2) blur(12px);
+  background:linear-gradient(180deg, rgba(15,20,35,0.7), rgba(15,20,35,0));
+  border-bottom:1px solid var(--stroke);
+}
+.header-inner{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 0;
+}
+.brand{display:flex; gap:14px; align-items:center}
+.logo{
+  width:40px; height:40px; border-radius:12px;
+  display:grid; place-items:center; font-size:20px;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  box-shadow: var(--shadow);
+}
+.brand h1{font-size:18px; margin:0}
+.brand p{margin:2px 0 0; color:var(--muted); font-size:13px}
+
+.top-actions{display:flex; gap:14px; align-items:center}
+.nav-link{color:var(--text); text-decoration:none; opacity:.8}
+.nav-link:hover{opacity:1}
+.cta{
+  padding:10px 14px; border-radius:999px; text-decoration:none; color:#071421;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  font-weight:700; box-shadow: var(--shadow);
+}
+.cta.large{padding:12px 18px; font-size:15px}
+.ghost{
+  padding:11px 16px; border-radius:999px; text-decoration:none;
+  border:1px solid var(--stroke); color:var(--text); opacity:.9;
+}
+.ghost:hover{opacity:1; border-color: rgba(255,255,255,0.2)}
+
+.hero{
+  display:grid; grid-template-columns: 1.1fr 1fr; gap:28px; padding:52px 0 18px;
+}
+.hero-copy h2{font-size:38px; line-height:1.1; margin:0 0 12px}
+.hero-copy p{color:var(--muted); font-size:18px; margin:0 0 18px}
+.hero-actions{display:flex; gap:12px; flex-wrap:wrap}
+
+.hero-visual{position:relative; min-height:200px}
+.sparkle{
+  position:absolute; inset:auto 0 0 auto; width:220px; height:220px; filter:blur(36px);
+  background: radial-gradient(closest-side, rgba(142,245,168,0.6), transparent);
+  animation: float 6s ease-in-out infinite alternate;
+}
+@keyframes float{to{transform: translateY(-18px)}}
+
+.card{
+  background:var(--card); border:1px solid var(--stroke); border-radius:var(--radius);
+  padding:14px 16px; box-shadow: var(--shadow);
+}
+.hint{position:relative; margin:16px 0 0; max-width:420px}
+
+.chat-section{padding:36px 0 14px}
+.chat-card{
+  background:var(--card); border:1px solid var(--stroke); border-radius:20px;
+  padding:18px; box-shadow: var(--shadow);
+}
+.chat-head{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px;
+}
+.agent{display:flex; align-items:center; gap:12px}
+.avatar{
+  width:40px; height:40px; border-radius:50%;
+  display:grid; place-items:center; font-size:20px;
+  background: linear-gradient(135deg, #2e3e6b, #1a223a);
+  border:1px solid var(--stroke);
+}
+h3{margin:0 0 2px}
+.muted{color:var(--muted)}
+.icon-btn{
+  background:transparent; border:1px solid var(--stroke); color:var(--text);
+  width:38px; height:38px; border-radius:10px; display:grid; place-items:center; cursor:pointer;
+}
+.icon-btn:hover{border-color: rgba(255,255,255,0.25)}
+
+.chat-box{
+  height:min(54vh, 520px); overflow:auto; padding:10px; border-radius:14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  border:1px dashed var(--stroke);
+}
+
+.msg{display:flex; gap:10px; margin:10px 0; align-items:flex-end}
+.msg .bubble{
+  max-width: 70%;
+  padding:10px 12px; border-radius:14px; border:1px solid var(--stroke);
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(6px);
+}
+.msg.user{justify-content:flex-end}
+.msg.user .bubble{
+  background: linear-gradient(135deg, rgba(106,163,255,0.25), rgba(142,245,168,0.22));
+}
+.msg .meta{font-size:11px; color:var(--muted); margin-top:6px}
+.typing{display:inline-block; width:36px; height:10px}
+.dot{display:inline-block; width:6px; height:6px; margin:0 2px; border-radius:50%; background:var(--muted); opacity:.6; animation: blink 1.2s infinite}
+.dot:nth-child(2){animation-delay:.2s}
+.dot:nth-child(3){animation-delay:.4s}
+@keyframes blink{50%{opacity:1}}
+
+.input-row{
+  display:flex; gap:8px; margin-top:12px;
+  background: rgba(255,255,255,0.06); border:1px solid var(--stroke); border-radius:14px; padding:8px;
+}
+.input-row input{
+  flex:1; background:transparent; border:none; color:var(--text); font-size:15px; outline:none;
+}
+.send{
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  border:none; color:#071421; font-weight:700; padding:10px 12px; border-radius:12px; cursor:pointer;
+  display:grid; place-items:center; width:44px; height:40px; box-shadow: var(--shadow);
+}
+
+.grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; padding:22px 0 8px;
+}
+.tile{
+  background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:16px; box-shadow: var(--shadow);
+}
+
+.contact{padding:28px 0}
+.contact-card{display:inline-block; padding:18px 20px} 
+.contact-card ul{padding-left:18px; margin:8px 0 0}
+
+.site-footer{border-top:1px solid var(--stroke); margin-top:26px; padding:16px 0}
+.footer-inner{display:flex; justify-content:space-between; align-items:center}
+.legal{font-size:12px; margin:8px 4px 0}
+
+@media (max-width: 920px){
+  .hero{grid-template-columns: 1fr; gap:18px}
+  .grid{grid-template-columns: 1fr 1fr}
+}
+@media (max-width: 620px){
+  .grid{grid-template-columns: 1fr}
+  .header-inner{flex-wrap:wrap; gap:10px}
+  .nav-link{display:none}
+}
